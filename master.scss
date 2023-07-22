@@ -1,0 +1,34 @@
+$num : 0;
+*,*::after,*::before{
+    margin: 0;padding: 0;box-sizing: border-box;
+} 
+.ostad{
+    width: 500px;
+    height: 700px;
+    margin: 100px auto;
+    position: relative;
+    >*{
+        position: absolute;
+    }
+    >img{
+        width: 100%;height: 100%;object-fit: cover;
+        top: 0;left: 0;
+    }
+    &:hover>div{
+        left: 0 !important;
+    }
+    >div{
+        transition: 2s;
+        width: 2px;
+        height: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        @for $i from 1 through 50{
+            &:nth-of-type(#{$i}){
+                left: ((2*$num)+2)+0%  
+            }
+            $num : $num+1
+        }
+    }
+}
